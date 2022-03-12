@@ -28,6 +28,6 @@ $db->insert('payments',$params1);
 $db->insert('order_products',$params2);
 $db->getResult();
 
-header('Location: '. $hostname.'/success.php');
+header('Location:success.php');
 
 ?>
