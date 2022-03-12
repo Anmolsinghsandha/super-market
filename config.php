@@ -3,6 +3,6 @@
 
   $str1 = "https://";
   $str2 = "/super-market";
-  $hostname = "https://supermarket-anmol.herokuapp.com/super-market";
+  $hostname = "https://supermarket-anmol.herokuapp.com";
 
 ?>
