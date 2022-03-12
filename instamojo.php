@@ -8,10 +8,10 @@ $db = new Database();
 $db->select('options','site_name',null,null,null,null);
 $site_name = $db->getResult();
 
-$_SESSION['TID'] = $response->payment_request->id;
+$_SESSION['TID'] = null
 $params1 = [
     'item_number' => $_POST['product_id'],
-    'txn_id' => $response->payment_request->id,
+    'txn_id' => null
     'payment_gross' => $_POST['product_total'],
     'payment_status' => 'credit',
 ];
@@ -21,7 +21,7 @@ $params2 = [
     'total_amount' => $_POST['product_total'],
     'product_user' => $_SESSION['user_id'],
     'order_date' => date('Y-m-d'),
-    'pay_req_id' => $response->payment_request->id
+    'pay_req_id' => null
 ];
 $db = new Database();
 $db->insert('payments',$params1);
