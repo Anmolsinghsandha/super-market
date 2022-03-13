@@ -2,7 +2,34 @@
 include 'config.php';
 session_start(); ?>
 <?php
-// if(($_GET['payment_request_id'] == $_SESSION['TID']) && $_GET['payment_status'] == 'Credit'){
+
+	$user = $_SESSION['username'];
+
+	$db = new Database();
+	$db->select('options','site_name',null,null,null,null);
+	$site_name = $db->getResult();
+
+	$_SESSION['TID'] = null
+	$params1 = [
+		'item_number' => $_POST['product_id'],
+		'txn_id' => null
+		'payment_gross' => $_POST['product_total'],
+		'payment_status' => 'credit',
+	];
+	$params2 = [
+		'product_id' => $_POST['product_id'],
+		'product_qty' => $_POST['product_qty'],
+		'total_amount' => $_POST['product_total'],
+		'product_user' => $_SESSION['user_id'],
+		'order_date' => date('Y-m-d'),
+		'pay_req_id' => null
+	];
+	$db = new Database();
+	$db->insert('payments',$params1);
+	$db->insert('order_products',$params2);
+	$db->getResult();
+
+
 	if(!$_SESSION['TID']){
 	$title = 'Payment Successful';
 	$response = '<div class="panel-body">
@@ -29,7 +56,7 @@ session_start(); ?>
 	        setcookie('cart_count','',time() - (180),'/','','',TRUE);
 			setcookie('user_cart','',time() - (180),'/','','',TRUE);
 	    }
-}else{
+	}else{
 	$title = 'Payment UnSuccessful';
 	$response = '<div class="panel-body">
 				  	<i class="fa fa-times-circle text-danger"></i>
