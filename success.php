@@ -5,10 +5,6 @@ session_start(); ?>
 
 	$user = $_SESSION['username'];
 
-	$db = new Database();
-	$db->select('options','site_name',null,null,null,null);
-	$site_name = $db->getResult();
-
 	$params1 = [
 		'item_number' => $_POST['product_id'],
 		'txn_id' => 'transaction999'
