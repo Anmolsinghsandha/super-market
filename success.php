@@ -10,6 +10,8 @@ session_start(); ?>
 	$site_name = $db->getResult();
 
 	$_SESSION['TID'] = null
+	echo `<script>alert($_SESSION['TID'])</script>`;
+	$_SESSION['TID']
 	$params1 = [
 		'item_number' => $_POST['product_id'],
 		'txn_id' => null
@@ -65,6 +67,7 @@ session_start(); ?>
 				  </div>';
 }
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
