@@ -2,7 +2,7 @@
     include 'php_files/config.php';
     if(!session_id()){ session_start(); }
     if(!isset($_SESSION['admin_name'])) {
-        header("location:{$base_url}/admin");
+        header("location: admin");
     }
 
     $db = new Database();
