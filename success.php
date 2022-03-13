@@ -20,8 +20,8 @@ session_start(); ?>
 		'pay_req_id' => 'transaction999'
 	];
 	$db = new Database();
-	$db->insert('payments',$params1);
-	$db->insert('order_products',$params2);
+	// $db->insert('payments',$params1);
+	// $db->insert('order_products',$params2);
 	
 	if($db->getResult()){
 	$title = 'Payment Successful';
