@@ -3,7 +3,7 @@ include 'config.php';
 session_start(); ?>
 <?php
 
-	$user = $_SESSION['username'];
+	// $user = $_SESSION['username'];
 
 	$params1 = [
 		'item_number' => $_POST['product_id'],
@@ -20,8 +20,8 @@ session_start(); ?>
 		'pay_req_id' => 'transaction999'
 	];
 	$db = new Database();
-	// $db->insert('payments',$params1);
-	// $db->insert('order_products',$params2);
+	$db->insert('payments',$params1);
+	$db->insert('order_products',$params2);
 	
 	if($db->getResult()){
 	$title = 'Payment Successful';
