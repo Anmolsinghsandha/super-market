@@ -3,7 +3,7 @@ include_once 'php_files/config.php';
 //checking session
 session_start();
 if(isset($_SESSION['admin_name'])) {
-    header("Location: admin/dashboard.php");
+    header("Location: dashboard.php");
 }
 ?>
 <!doctype html>
