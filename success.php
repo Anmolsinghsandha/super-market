@@ -9,12 +9,9 @@ session_start(); ?>
 	$db->select('options','site_name',null,null,null,null);
 	$site_name = $db->getResult();
 
-	$_SESSION['TID'] = null
-	echo `<script>alert($_SESSION['TID'])</script>`;
-	$_SESSION['TID']
 	$params1 = [
 		'item_number' => $_POST['product_id'],
-		'txn_id' => null
+		'txn_id' => 'transaction999'
 		'payment_gross' => $_POST['product_total'],
 		'payment_status' => 'credit',
 	];
@@ -24,15 +21,13 @@ session_start(); ?>
 		'total_amount' => $_POST['product_total'],
 		'product_user' => $_SESSION['user_id'],
 		'order_date' => date('Y-m-d'),
-		'pay_req_id' => null
+		'pay_req_id' => 'transaction999'
 	];
 	$db = new Database();
 	$db->insert('payments',$params1);
 	$db->insert('order_products',$params2);
-	$db->getResult();
-
-
-	if(!$_SESSION['TID']){
+	
+	if($db->getResult()){
 	$title = 'Payment Successful';
 	$response = '<div class="panel-body">
 				  	<i class="fa fa-check-circle text-success"></i>
