@@ -22,7 +22,7 @@ $(document).ready(function(){
                     var res = JSON.parse(response);
                     if(res.hasOwnProperty('success')){
                         $('#adminLogin').append('<div class="alert alert-success">Logged In Successfully.</div>');
-                        setTimeout(function(){ window.location = URL+'admin/dashboard.php'; }, 1000);
+                        setTimeout(function(){ window.location = URL+'dashboard.php'; }, 1000);
                     }else if(res.hasOwnProperty('error')){
                         $('#adminLogin').append('<div class="alert alert-danger">Username and Password not Matched.</div>');
                     }
