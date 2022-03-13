@@ -8,5 +8,5 @@
     session_destroy();
 
 mysqli_close($conn);
-header("location:{$base_url}/admin/index.php");
+header("location: admin/index.php");
 ?>
